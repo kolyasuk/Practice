@@ -10,8 +10,8 @@
 <h1>Home page</h1>
 <p>
 ${message}<br/>
-<a href="${pageContext.request.contextPath}/user/add.html">Add new team</a><br/>
-<a href="${pageContext.request.contextPath}/user/list.html">Team list</a><br/>
+<a href="${pageContext.request.contextPath}/user/add.html">Add new user</a><br/>
+<a href="${pageContext.request.contextPath}/user/list.html">User list</a><br/>
 </p>
 </body>
 </html>

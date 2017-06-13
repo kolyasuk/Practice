@@ -18,9 +18,10 @@
 <tbody>
 <c:forEach var="user" items="${users}">
 <tr>
-    <td>${team.id}</td>
-    <td>${team.name}</td>
-    <td>${team.rating}</td>
+    <td>${user.id}</td>
+    <td>${user.firstName}</td>
+    <td>${user.lastName}</td>
+    <td>${user.role}</td>
     <td>
     <a href="${pageContext.request.contextPath}/user/edit/${user.id}.html">Edit</a><br/>
     <a href="${pageContext.request.contextPath}/user/delete/${user.id}.html">Delete</a><br/>

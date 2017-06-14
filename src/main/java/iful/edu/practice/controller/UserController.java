@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import iful.edu.practice.interfaces.UserService;
 import iful.edu.practice.model.User;
-import iful.edu.practice.service.UserService;
 
 @Controller
 @RequestMapping(value = "/user")

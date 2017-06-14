@@ -1,10 +1,11 @@
-package iful.edu.practice.dao;
+package iful.edu.practice.interfaces;
 
 import java.util.List;
 
 import iful.edu.practice.model.User;
 
-public interface UserDao {
+public interface UserService {
+
 	public void addUser(User user);
 
 	public void updateUser(User user);

@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import iful.edu.practice.interfaces.UserDao;
 import iful.edu.practice.model.User;
 
 @Repository
@@ -18,10 +19,12 @@ public class UserDaoImpl implements UserDao {
 		return sessionFactory.getCurrentSession();
 	}
 
+	@Override
 	public void addUser(User user) {
 		getCurrentSession().save(user);
 	}
 
+	@Override
 	public void updateUser(User user) {
 		User userToUpdate = getUser(user.getId());
 		userToUpdate.setFirstName(user.getFirstName());
@@ -30,11 +33,13 @@ public class UserDaoImpl implements UserDao {
 		getCurrentSession().update(userToUpdate);
 	}
 
+	@Override
 	public User getUser(int id) {
 		User user = (User) getCurrentSession().get(User.class, id);
 		return user;
 	}
 
+	@Override
 	public void deleteUser(int id) {
 		User user = getUser(id);
 		if (user != null) {
@@ -43,6 +48,7 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@SuppressWarnings("unchecked")
+	@Override
 	public List<User> getUsers() {
 		return getCurrentSession().createQuery("from User").list();
 	}

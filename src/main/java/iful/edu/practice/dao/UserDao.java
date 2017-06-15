@@ -1,4 +1,4 @@
-package iful.edu.practice.interfaces;
+package iful.edu.practice.dao;
 
 import java.util.List;
 
@@ -9,9 +9,9 @@ public interface UserDao {
 
 	public void updateUser(User user);
 
-	public User getUser(int id);
+	public User getUser(int user_id);
 
-	public void deleteUser(int id);
+	public void deleteUser(int user_id);
 
 	public List<User> getUsers();
 

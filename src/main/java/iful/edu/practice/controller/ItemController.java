@@ -10,71 +10,71 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import iful.edu.practice.model.User;
-import iful.edu.practice.service.UserService;
+import iful.edu.practice.model.Item;
+import iful.edu.practice.service.ItemService;
 
 @Controller
-@RequestMapping(value = "/user")
-public class UserController {
+@RequestMapping(value = "/item")
+public class ItemController {
 
 	@Autowired
-	private UserService userService;
+	private ItemService itemService;
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
-	public ModelAndView addUserPage() {
-		ModelAndView modelAndView = new ModelAndView("add-user-form");
-		modelAndView.addObject("user", new User());
+	public ModelAndView addItemPage() {
+		ModelAndView modelAndView = new ModelAndView("add-item-form");
+		modelAndView.addObject("item", new Item());
 		return modelAndView;
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public ModelAndView addingUser(@ModelAttribute User user) {
+	public ModelAndView addingItem(@ModelAttribute Item item) {
 
 		ModelAndView modelAndView = new ModelAndView("home");
-		userService.addUser(user);
+		itemService.addItem(item);
 
-		String message = "User was successfully added.";
+		String message = "Item was successfully added.";
 		modelAndView.addObject("message", message);
 
 		return modelAndView;
 	}
 
 	@RequestMapping(value = "/list")
-	public ModelAndView listOfUsers() {
-		ModelAndView modelAndView = new ModelAndView("list-of-users");
+	public ModelAndView listOfItems() {
+		ModelAndView modelAndView = new ModelAndView("list-of-items");
 
-		List<User> users = userService.getUsers();
-		modelAndView.addObject("users", users);
+		List<Item> items = itemService.getItems();
+		modelAndView.addObject("items", items);
 
 		return modelAndView;
 	}
 
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
-	public ModelAndView editUserPage(@PathVariable Integer id) {
-		ModelAndView modelAndView = new ModelAndView("edit-user-form");
-		User user = userService.getUser(id);
-		modelAndView.addObject("user", user);
+	public ModelAndView editItemPage(@PathVariable Integer id) {
+		ModelAndView modelAndView = new ModelAndView("edit-item-form");
+		Item item = itemService.getItem(id);
+		modelAndView.addObject("item", item);
 		return modelAndView;
 	}
 
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
-	public ModelAndView edditingUser(@ModelAttribute User user, @PathVariable Integer id) {
+	public ModelAndView edditingItem(@ModelAttribute Item item, @PathVariable Integer id) {
 
 		ModelAndView modelAndView = new ModelAndView("home");
 
-		userService.updateUser(user);
+		itemService.updateItem(item);
 
-		String message = "User was successfully edited.";
+		String message = "Item was successfully edited.";
 		modelAndView.addObject("message", message);
 
 		return modelAndView;
 	}
 
 	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
-	public ModelAndView deleteUser(@PathVariable Integer id) {
+	public ModelAndView deleteItem(@PathVariable Integer id) {
 		ModelAndView modelAndView = new ModelAndView("home");
-		userService.deleteUser(id);
-		String message = "User was successfully deleted.";
+		itemService.deleteItem(id);
+		String message = "Item was successfully deleted.";
 		modelAndView.addObject("message", message);
 		return modelAndView;
 	}

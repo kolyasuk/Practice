@@ -7,7 +7,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import iful.edu.practice.interfaces.UserDao;
 import iful.edu.practice.model.User;
 
 @Repository
@@ -19,38 +18,31 @@ public class UserDaoImpl implements UserDao {
 		return sessionFactory.getCurrentSession();
 	}
 
-	@Override
 	public void addUser(User user) {
 		getCurrentSession().save(user);
 	}
 
-	@Override
 	public void updateUser(User user) {
-		User userToUpdate = getUser(user.getId());
-		userToUpdate.setFirstName(user.getFirstName());
-		userToUpdate.setLastName(user.getLastName());
+		User userToUpdate = getUser(user.getUser_id());
+		userToUpdate.setFirst_name(user.getFirst_name());
+		userToUpdate.setLast_name(user.getLast_name());
 		userToUpdate.setRole(user.getRole());
-		getCurrentSession().update(userToUpdate);
 	}
 
-	@Override
-	public User getUser(int id) {
-		User user = (User) getCurrentSession().get(User.class, id);
+	public User getUser(int user_id) {
+		User user = (User) getCurrentSession().get(User.class, user_id);
 		return user;
 	}
 
-	@Override
-	public void deleteUser(int id) {
-		User user = getUser(id);
+	public void deleteUser(int user_id) {
+		User user = getUser(user_id);
 		if (user != null) {
 			getCurrentSession().delete(user);
 		}
 	}
 
 	@SuppressWarnings("unchecked")
-	@Override
 	public List<User> getUsers() {
 		return getCurrentSession().createQuery("from User").list();
 	}
-
 }

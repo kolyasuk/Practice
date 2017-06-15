@@ -1,4 +1,4 @@
-package iful.edu.practice.interfaces;
+package iful.edu.practice.service;
 
 import java.util.List;
 

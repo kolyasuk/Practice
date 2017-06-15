@@ -2,15 +2,16 @@ package iful.edu.practice.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "items")
+@Table(name = "item")
 public class Item {
 	@Id
-	@GeneratedValue
-	private Integer id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer item_id;
 
 	private String name;
 
@@ -20,12 +21,12 @@ public class Item {
 
 	private double price;
 
-	public Integer getId() {
-		return id;
+	public Integer getItem_id() {
+		return item_id;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setItem_id(Integer item_id) {
+		this.item_id = item_id;
 	}
 
 	public String getName() {

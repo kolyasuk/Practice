@@ -6,40 +6,39 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import iful.edu.practice.interfaces.ItemDao;
-import iful.edu.practice.interfaces.ItemService;
+import iful.edu.practice.dao.ItemDao;
 import iful.edu.practice.model.Item;
 
 @Service
-@Transactional
 public class ItemServiceImpl implements ItemService {
 
 	@Autowired
 	private ItemDao ItemDao;
 
-	@Override
+	@Transactional
 	public void addItem(Item item) {
 		ItemDao.addItem(item);
 	}
 
-	@Override
+	@Transactional
 	public void updateItem(Item item) {
 		ItemDao.updateItem(item);
 	}
 
-	@Override
+	@Transactional
 	public Item getItem(int id) {
 		return ItemDao.getItem(id);
 	}
 
-	@Override
-	public void deteleItem(int id) {
+	@Transactional
+	public void deleteItem(int id) {
 		ItemDao.deteleItem(id);
 
 	}
 
-	@Override
+	@Transactional
 	public List<Item> getItems() {
 		return ItemDao.getItems();
 	}
+
 }

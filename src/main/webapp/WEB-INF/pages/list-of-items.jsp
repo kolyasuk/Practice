@@ -8,27 +8,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>List of users</title>
+<title>List of items</title>
 </head>
 <body>
-<h1>List of users</h1>
-<p>Here you can see the list of the users, edit them, remove or update.</p>
+<h1>List of items</h1>
+<p>Here you can see the list of the items, edit them, remove or update.</p>
 <table border="1px" cellpadding="0" cellspacing="0" >
 <thead>
 <tr>
-<th width="10%">user_id</th><th width="15%">first_name</th><th width="15%">last_name</th><th width="10%">role</th>
+<th width="10%">item_id</th><th width="10%">name</th><th width="10%">photo</th><th width="10%">description</th><th width="10%">price</th>
 </tr>
 </thead>
 <tbody>
-<c:forEach var="user" items="${users}">
+<c:forEach var="item" items="${items}">
 <tr>
-	<td>${user.user_id}</td>
-	<td>${user.first_name}</td>
-	<td>${user.last_name}</td>
-	<td>${user.role}</td>
+	<td>${item.item_id}</td>
+	<td>${item.name}</td>
+	<td>${item.photo}</td>
+	<td>${item.description}</td>
+	<td>${item.price}</td>
 	<td>
-	<a href="${pageContext.request.contextPath}/user/edit/${user.user_id}.html">Edit</a><br/>
-	<a href="${pageContext.request.contextPath}/user/delete/${user.user_id}.html">Delete</a><br/>
+	<a href="${pageContext.request.contextPath}/item/edit/${item.item_id}.html">Edit</a><br/>
+	<a href="${pageContext.request.contextPath}/item/delete/${item.item_id}.html">Delete</a><br/>
 	</td>
 </tr>
 </c:forEach>

@@ -1,11 +1,10 @@
-package iful.edu.practice.interfaces;
+package iful.edu.practice.dao;
 
 import java.util.List;
 
 import iful.edu.practice.model.Item;
 
-public interface ItemService {
-
+public interface ItemDao {
 	public void addItem(Item item);
 
 	public void updateItem(Item item);

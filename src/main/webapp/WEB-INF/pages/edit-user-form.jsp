@@ -19,20 +19,28 @@
 <table>
 <tbody>
 	<tr>
-		<td>First name:</td>
+		<td>Login:</td>
+		<td><form:input path="login" /></td>
+		<td><form:errors path="login" class="error-message" /></td>
+	</tr>
+		<tr>
+		<td>Name:</td>
 		<td><form:input path="name" /></td>
+		<td><form:errors path="name" class="error-message" /></td>
 	</tr>
 		<tr>
 		<td>Password:</td>
 		<td><form:input path="password" /></td>
+		<td><form:errors path="password" class="error-message" /></td>
+	</tr>
+		<tr>
+		<td>Email:</td>
+		<td><form:input path="email" /></td>
+		<td><form:errors path="email" class="error-message" /></td>
 	</tr>
 	<tr>
 		<td>Role:</td>
 		<td><form:input path="role" /></td>
-	</tr>
-	<tr>
-		<td><input type="submit" value="Add" /></td>
-		<td></td>
 	</tr>
 </tbody>
 </table>

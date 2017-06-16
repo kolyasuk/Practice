@@ -23,19 +23,26 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	public void updateUser(User user) {
-		User userToUpdate = getUser(user.getId());
+		User userToUpdate = getUserById(user.getId());
+		userToUpdate.setLogin(user.getLogin());
 		userToUpdate.setName(user.getName());
 		userToUpdate.setPassword(user.getPassword());
+		userToUpdate.setEmail(user.getEmail());
 		userToUpdate.setRole(user.getRole());
 	}
 
-	public User getUser(int id) {
+	public User getUserById(int id) {
 		User user = (User) getCurrentSession().get(User.class, id);
 		return user;
 	}
 
+	public User getUserByLogin(String login) {
+		User user = (User) getCurrentSession().get(User.class, login);
+		return user;
+	}
+
 	public void deleteUser(int id) {
-		User user = getUser(id);
+		User user = getUserById(id);
 		if (user != null) {
 			getCurrentSession().delete(user);
 		}

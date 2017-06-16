@@ -15,24 +15,28 @@
 <h1>Edit item page</h1>
 <p>Here you can edit the existing item.</p>
 <p>${message}</p>
-<form:form method="POST" commandName="item" action="${pageContext.request.contextPath}/item/edit/${item.id}.html">
+<form:form method="POST" commandName="item" action="${pageContext.request.contextPath}/item/edit/${item.id}?.html">
 <table>
 <tbody>
 	<tr>
 		<td>Name:</td>
 		<td><form:input path="name" /></td>
+		<td><form:errors path="name" class="error-message" /></td>
 	</tr>
 		<tr>
 		<td>Photo:</td>
 		<td><form:input path="photo" /></td>
+		<td><form:errors path="photo" class="error-message" /></td>
 	</tr>
 	<tr>
 		<td>Description:</td>
 		<td><form:input path="description" /></td>
+		<td><form:errors path="description" class="error-message" /></td>
 	</tr>
-		<tr>
+	<tr>
 		<td>Price:</td>
 		<td><form:input path="price" /></td>
+		<td><form:errors path="price" class="error-message" /></td>
 	</tr>
 	<tr>
 		<td><input type="submit" value="Add" /></td>

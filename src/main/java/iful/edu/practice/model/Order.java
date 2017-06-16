@@ -10,13 +10,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "userOrder")
+@Table(name = "user_order")
 public class Order {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "order_id", nullable = false)
@@ -25,12 +25,12 @@ public class Order {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id", nullable = false, //
 			foreignKey = @ForeignKey(name = "user_order_ibfk_1"))
-	private Integer userId;
+	private User user;
 
-	@JoinTable(name = "item_order")
-	@JoinColumn(name = "item_id", nullable = false)
 	@ManyToOne(fetch = FetchType.LAZY)
-	private int itemId;
+	@JoinColumn(name = "item_id", nullable = false, //
+			foreignKey = @ForeignKey(name = "user_order_ibfk_2"))
+	private Item item;
 
 	@Column(name = "total_price", nullable = false)
 	private double totalPrice;
@@ -48,12 +48,20 @@ public class Order {
 		this.orderId = orderId;
 	}
 
-	public int getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Item getItem() {
+		return item;
+	}
+
+	public void setItem(Item item) {
+		this.item = item;
 	}
 
 	public double getTotalPrice() {
@@ -80,11 +88,4 @@ public class Order {
 		this.status = status;
 	}
 
-	public int getItemId() {
-		return itemId;
-	}
-
-	public void setItemId(int itemId) {
-		this.itemId = itemId;
-	}
 }

@@ -24,8 +24,8 @@ public class OrderDaoImpl implements OrderDao {
 		User user = new User();
 		Item item = new Item();
 		java.sql.Date date = new java.sql.Date((new java.util.Date()).getTime());
-		order.setUserId(user.getId());
-		order.setItemId(item.getId());
+		order.setUser(user);
+		order.setItem(item);
 		order.setTotalPrice(item.getPrice());
 		order.setOrderDate(date);
 		order.setStatus("true");

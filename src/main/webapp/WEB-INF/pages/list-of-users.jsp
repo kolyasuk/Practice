@@ -16,15 +16,18 @@
 <table border="1px" cellpadding="0" cellspacing="0" >
 <thead>
 <tr>
-<th width="10%">id</th><th width="15%">name</th><th width="15%">password</th><th width="10%">role</th>
+<th width="10%">id</th><th width="10%">login</th><th width="10%">name</th>
+<th width="10%">password</th><th width="10%">email</th><th width="10%">role</th>
 </tr>
 </thead>
 <tbody>
 <c:forEach var="user" items="${users}">
 <tr>
 	<td>${user.id}</td>
+	<td>${user.login}</td>
 	<td>${user.name}</td>
 	<td>${user.password}</td>
+	<td>${user.email}</td>
 	<td>${user.role}</td>
 	<td>
 	<a href="${pageContext.request.contextPath}/user/edit/${user.id}.html">Edit</a><br/>

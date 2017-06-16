@@ -27,8 +27,13 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Transactional
-	public User getUser(int id) {
-		return userDao.getUser(id);
+	public User getUserById(int id) {
+		return userDao.getUserById(id);
+	}
+
+	@Transactional
+	public User getUserByLogin(String login) {
+		return userDao.getUserByLogin(login);
 	}
 
 	@Transactional
@@ -40,4 +45,5 @@ public class UserServiceImpl implements UserService {
 	public List<User> getUsers() {
 		return userDao.getUsers();
 	}
+
 }

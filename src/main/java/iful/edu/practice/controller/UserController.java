@@ -52,7 +52,7 @@ public class UserController {
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
 	public ModelAndView editUserPage(@PathVariable Integer id) {
 		ModelAndView modelAndView = new ModelAndView("edit-user-form");
-		User user = userService.getUser(id);
+		User user = userService.getUserById(id);
 		modelAndView.addObject("user", user);
 		return modelAndView;
 	}

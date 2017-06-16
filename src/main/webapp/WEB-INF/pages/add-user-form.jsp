@@ -19,11 +19,11 @@
 <tbody>
 	<tr>
 		<td>First name:</td>
-		<td><form:input path="first_name" /></td>
+		<td><form:input path="name" /></td>
 	</tr>
 		<tr>
-		<td>Last name:</td>
-		<td><form:input path="last_name" /></td>
+		<td>Password:</td>
+		<td><form:input path="password" /></td>
 	</tr>
 	<tr>
 		<td>Role:</td>

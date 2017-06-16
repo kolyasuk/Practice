@@ -23,7 +23,7 @@ public class ItemDaoImpl implements ItemDao {
 	}
 
 	public void updateItem(Item item) {
-		Item itemToUpdate = getItem(item.getItem_id());
+		Item itemToUpdate = getItem(item.getId());
 		itemToUpdate.setName(item.getName());
 		itemToUpdate.setPhoto(item.getPhoto());
 		itemToUpdate.setDescription(item.getDescription());

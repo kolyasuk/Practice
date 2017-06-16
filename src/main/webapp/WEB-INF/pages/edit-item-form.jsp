@@ -15,7 +15,7 @@
 <h1>Edit item page</h1>
 <p>Here you can edit the existing item.</p>
 <p>${message}</p>
-<form:form method="POST" commandName="item" action="${pageContext.request.contextPath}/item/edit/${item.item_id}.html">
+<form:form method="POST" commandName="item" action="${pageContext.request.contextPath}/item/edit/${item.id}.html">
 <table>
 <tbody>
 	<tr>

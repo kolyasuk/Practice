@@ -16,19 +16,19 @@
 <table border="1px" cellpadding="0" cellspacing="0" >
 <thead>
 <tr>
-<th width="10%">user_id</th><th width="15%">first_name</th><th width="15%">last_name</th><th width="10%">role</th>
+<th width="10%">id</th><th width="15%">name</th><th width="15%">password</th><th width="10%">role</th>
 </tr>
 </thead>
 <tbody>
 <c:forEach var="user" items="${users}">
 <tr>
-	<td>${user.user_id}</td>
-	<td>${user.first_name}</td>
-	<td>${user.last_name}</td>
+	<td>${user.id}</td>
+	<td>${user.name}</td>
+	<td>${user.password}</td>
 	<td>${user.role}</td>
 	<td>
-	<a href="${pageContext.request.contextPath}/user/edit/${user.user_id}.html">Edit</a><br/>
-	<a href="${pageContext.request.contextPath}/user/delete/${user.user_id}.html">Delete</a><br/>
+	<a href="${pageContext.request.contextPath}/user/edit/${user.id}.html">Edit</a><br/>
+	<a href="${pageContext.request.contextPath}/user/delete/${user.id}.html">Delete</a><br/>
 	</td>
 </tr>
 </c:forEach>

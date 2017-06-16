@@ -16,20 +16,20 @@
 <table border="1px" cellpadding="0" cellspacing="0" >
 <thead>
 <tr>
-<th width="10%">item_id</th><th width="10%">name</th><th width="10%">photo</th><th width="10%">description</th><th width="10%">price</th>
+<th width="10%">id</th><th width="10%">name</th><th width="10%">photo</th><th width="10%">description</th><th width="10%">price</th>
 </tr>
 </thead>
 <tbody>
 <c:forEach var="item" items="${items}">
 <tr>
-	<td>${item.item_id}</td>
+	<td>${item.id}</td>
 	<td>${item.name}</td>
 	<td>${item.photo}</td>
 	<td>${item.description}</td>
 	<td>${item.price}</td>
 	<td>
-	<a href="${pageContext.request.contextPath}/item/edit/${item.item_id}.html">Edit</a><br/>
-	<a href="${pageContext.request.contextPath}/item/delete/${item.item_id}.html">Delete</a><br/>
+	<a href="${pageContext.request.contextPath}/item/edit/${item.id}.html">Edit</a><br/>
+	<a href="${pageContext.request.contextPath}/item/delete/${item.id}.html">Delete</a><br/>
 	</td>
 </tr>
 </c:forEach>

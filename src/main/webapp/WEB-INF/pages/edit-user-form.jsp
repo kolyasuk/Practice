@@ -15,16 +15,16 @@
 <h1>Edit user page</h1>
 <p>Here you can edit the existing user.</p>
 <p>${message}</p>
-<form:form method="POST" commandName="user" action="${pageContext.request.contextPath}/user/edit/${user.user_id}.html">
+<form:form method="POST" commandName="user" action="${pageContext.request.contextPath}/user/edit/${user.id}.html">
 <table>
 <tbody>
 	<tr>
 		<td>First name:</td>
-		<td><form:input path="first_name" /></td>
+		<td><form:input path="name" /></td>
 	</tr>
 		<tr>
-		<td>Last name:</td>
-		<td><form:input path="last_name" /></td>
+		<td>Password:</td>
+		<td><form:input path="password" /></td>
 	</tr>
 	<tr>
 		<td>Role:</td>

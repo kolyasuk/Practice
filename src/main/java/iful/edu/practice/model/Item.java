@@ -1,5 +1,6 @@
 package iful.edu.practice.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,7 +12,8 @@ import javax.persistence.Table;
 public class Item {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer item_id;
+	@Column(name = "item_id", nullable = false)
+	private Integer id;
 
 	private String name;
 
@@ -21,12 +23,12 @@ public class Item {
 
 	private double price;
 
-	public Integer getItem_id() {
-		return item_id;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setItem_id(Integer item_id) {
-		this.item_id = item_id;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getName() {

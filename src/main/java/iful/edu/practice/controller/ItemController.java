@@ -43,7 +43,7 @@ public class ItemController {
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public ModelAndView addingItem(@Validated Item item, BindingResult result, Model model, final RedirectAttributes redirectAttributes) {
+	public ModelAndView addingItem(@Validated @ModelAttribute Item item, BindingResult result, Model model, final RedirectAttributes redirectAttributes) {
 		itemValidator.validate(item, result);
 		if (result.hasErrors()) {
 			return new ModelAndView("add-item-form");

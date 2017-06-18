@@ -43,7 +43,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public String addingUser(@Validated User user, BindingResult result, Model model, final RedirectAttributes redirectAttributes) {
+	public String addingUser(@Validated @ModelAttribute User user, BindingResult result, Model model, final RedirectAttributes redirectAttributes) {
 		userValidator.validate(user, result);
 		if (result.hasErrors()) {
 			return "reg";

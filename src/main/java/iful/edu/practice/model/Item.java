@@ -16,29 +16,13 @@ public class Item {
 	@Column(name = "item_id", nullable = false)
 	private int id;
 
-	/*
-	 * @NotNull
-	 * 
-	 * @Size(min = 5, max = 20)
-	 */
 	private String name;
 
 	@Lob
-	/*
-	 * @NotNull
-	 * 
-	 * @Size(min = 5, max = 20)
-	 */
 	private byte[] photo;
 
-	/*
-	 * @NotNull
-	 * 
-	 * @Size(min = 5, max = 20)
-	 */
 	private String description;
 
-	/* @NotNull */
 	private double price;
 
 	public int getId() {

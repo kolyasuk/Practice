@@ -1,5 +1,6 @@
 package iful.edu.practice.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -34,6 +35,20 @@ public class UserDaoImpl implements UserDao {
 	public User getUserById(int id) {
 		User user = (User) getCurrentSession().get(User.class, id);
 		return user;
+	}
+
+	@SuppressWarnings("unchecked")
+	public User getUserByLogin(String login) {
+		List<User> users = new ArrayList<User>();
+
+		users = sessionFactory.getCurrentSession().createQuery("from User where login=?").setParameter(0, login).list();
+
+		if (users.size() > 0) {
+			return users.get(0);
+		} else {
+			return null;
+		}
+
 	}
 
 	public void deleteUser(int id) {

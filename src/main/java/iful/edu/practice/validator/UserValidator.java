@@ -17,7 +17,7 @@ public class UserValidator implements Validator {
 
 	@Override
 	public boolean supports(Class<?> clazz) {
-		return clazz == User.class;
+		return clazz.equals(User.class);
 	}
 
 	@Override
@@ -28,6 +28,26 @@ public class UserValidator implements Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "NotEmpty.userForm.name");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "NotEmpty.userForm.email");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty.userForm.password");
+
+		if (user.getLogin().length() < 6 || user.getLogin().length() > 16) {
+			errors.rejectValue("login", "Size.userForm.login");
+		}
+
+		if (user.getName().length() < 5 || user.getName().length() > 50) {
+			errors.rejectValue("name", "Size.userForm.name");
+		}
+
+		if (user.getEmail().length() < 5 || user.getName().length() > 50) {
+			errors.rejectValue("email", "Size.userForm.email");
+		}
+		if (user.getPassword().length() < 5) {
+			errors.rejectValue("password", "Size.userForm.password");
+		}
+
+		/*
+		 * if (userService.getUserByLogin(user.getLogin()) != null) {
+		 * errors.rejectValue("login", "Duplicate.userForm.login"); }
+		 */
 
 		/*
 		 * String login = user.getLogin(); if (login != null && login.length() >

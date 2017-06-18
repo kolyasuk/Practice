@@ -18,13 +18,33 @@ public class User {
 	@Column(name = "user_id", nullable = false)
 	private int id;
 
+	/*
+	 * @NotNull
+	 * 
+	 * @Size(min = 5, max = 20)
+	 */
 	private String login;
 
 	@Column(name = "user_name", nullable = false)
+	/*
+	 * @NotNull
+	 * 
+	 * @Size(min = 5, max = 20)
+	 */
 	private String name;
 
+	/*
+	 * @NotNull
+	 * 
+	 * @Size(min = 5, max = 20)
+	 */
 	private String password;
 
+	/*
+	 * @NotNull
+	 * 
+	 * @Size(min = 5, max = 20)
+	 */
 	private String email;
 
 	private String role;

@@ -17,10 +17,13 @@ public class ItemValidator implements Validator {
 
 	@Override
 	public void validate(Object target, Errors errors) {
+		Item item = (Item) target;
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "NotEmpty.itemForm.name");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "photo", "NotEmpty.itemForm.photo");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "description", "NotEmpty.itemForm.description");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "price", "NotEmpty.itemForm.price");
+		if (item.getPrice() < 1) {
+			errors.rejectValue("price", "NotEmpty.itemForm.price");
+		}
 
 	}
 

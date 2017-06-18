@@ -6,14 +6,14 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import iful.edu.practice.dao.UserDao;
 import iful.edu.practice.model.User;
+import iful.edu.practice.service.UserService;
 
 @Component
 public class UserValidator implements Validator {
 
 	@Autowired
-	private UserDao userDao;
+	private UserService userService;
 
 	@Override
 	public boolean supports(Class<?> clazz) {
@@ -29,12 +29,11 @@ public class UserValidator implements Validator {
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "NotEmpty.userForm.email");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty.userForm.password");
 
-		String login = user.getLogin();
-		if (login != null && login.length() > 0) {
-			User otherUser = userDao.getUserByLogin(login);
-			if (otherUser != null) {
-				errors.rejectValue("login", "Duplicate.userForm.login");
-			}
-		}
+		/*
+		 * String login = user.getLogin(); if (login != null && login.length() >
+		 * 0) { User otherUser = userService.getUserByLogin(login); if
+		 * (otherUser != null) { errors.rejectValue("login",
+		 * "Duplicate.userForm.login"); } }
+		 */
 	}
 }

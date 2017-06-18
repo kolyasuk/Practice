@@ -4,21 +4,36 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import iful.edu.practice.model.Item;
 import iful.edu.practice.service.ItemService;
+import iful.edu.practice.validator.ItemValidator;
 
 @Controller
 @RequestMapping(value = "/item")
 public class ItemController {
 
 	@Autowired
+	private ItemValidator itemValidator;
+
+	@Autowired
 	private ItemService itemService;
+
+	@InitBinder
+	protected void initBinder(WebDataBinder binder) {
+		binder.setValidator(itemValidator);
+	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public ModelAndView addItemPage() {
@@ -28,10 +43,14 @@ public class ItemController {
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
-	public ModelAndView addingItem(@ModelAttribute Item item) {
+	public ModelAndView addingItem(@Validated Item item, BindingResult result, Model model, final RedirectAttributes redirectAttributes) {
+		itemValidator.validate(item, result);
+		if (result.hasErrors()) {
+			return new ModelAndView("add-item-form");
+		}
 
-		ModelAndView modelAndView = new ModelAndView("home");
 		itemService.addItem(item);
+		ModelAndView modelAndView = new ModelAndView("home");
 
 		String message = "Item was successfully added.";
 		modelAndView.addObject("message", message);

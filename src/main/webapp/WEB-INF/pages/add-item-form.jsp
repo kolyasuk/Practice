@@ -15,31 +15,19 @@
 <h1>Add item page</h1>
 <p>Here you can add a new item.</p>
 <form:form method="POST" commandName="item" action="${pageContext.request.contextPath}/item/add.html">
-<table>
-<tbody>
-	<tr>
-		<td>Name:</td>
-		<td><form:input path="name" /></td>
-	</tr>
-		<tr>
-		<td>Photo:</td>
-		<td><form:input path="photo" /></td>
-	</tr>
-	<tr>
-		<td>Description:</td>
-		<td><form:input path="description" /></td>
-	</tr>
-		<tr>
-		<td>Price:</td>
-		<td><form:input path="price" /></td>
-	</tr>
+	   Enter Name:<form:input  path="name"/>
+	   <font color="red"> <form:errors path="name"></form:errors></font><br/>
+	   Enter photo :<form:input path="photo"/>
+	   <font color="red"><form:errors path="photo"></form:errors></font><br/>
+	   Enter description :<form:input path="description"/>
+	   <font color="red"><form:errors path="description" ></form:errors></font><br/>
+	   Enter price :<form:input path="price"/>
+	   <font color="red"><form:errors path="price" ></form:errors></font><br/>
 	<tr>
 		<td><input type="submit" value="Add" /></td>
 		<td></td>
 	</tr>
-</tbody>
-</table>
-</form:form>
+	  </form:form>
 
 <p><a href="${pageContext.request.contextPath}/index.html">Home page</a></p>
 </body>

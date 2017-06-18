@@ -36,11 +36,6 @@ public class UserDaoImpl implements UserDao {
 		return user;
 	}
 
-	public User getUserByLogin(String login) {
-		User user = (User) getCurrentSession().get(User.class, login);
-		return user;
-	}
-
 	public void deleteUser(int id) {
 		User user = getUserById(id);
 		if (user != null) {

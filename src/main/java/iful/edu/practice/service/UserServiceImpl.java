@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import iful.edu.practice.dao.UserDao;
 import iful.edu.practice.model.User;
 
-@Service
+@Service("user")
 public class UserServiceImpl implements UserService {
 
 	@Autowired
@@ -29,11 +29,6 @@ public class UserServiceImpl implements UserService {
 	@Transactional
 	public User getUserById(int id) {
 		return userDao.getUserById(id);
-	}
-
-	@Transactional
-	public User getUserByLogin(String login) {
-		return userDao.getUserByLogin(login);
 	}
 
 	@Transactional
